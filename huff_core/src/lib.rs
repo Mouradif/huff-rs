@@ -353,7 +353,7 @@ impl<'a, 'l> Compiler<'a, 'l> {
                 let lexer = Lexer::new(full_source.source);
 
                 // Grab the tokens from the lexer
-                let tokens = lexer.into_iter().map(|x| x.unwrap()).collect::<Vec<Token>>();
+                let tokens = lexer.map(|x| x.unwrap()).collect::<Vec<Token>>();
                 tracing::info!(target: "core", "LEXICAL ANALYSIS COMPLETE FOR \"{}\"", file.path);
                 tracing::info!(target: "core", "└─ TOKEN COUNT: {}", tokens.len());
 
